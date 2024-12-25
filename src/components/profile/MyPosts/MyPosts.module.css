@@ -1,0 +1,14 @@
+
+.posts{
+    padding: 10px;
+}
+.item.addPost{
+    display: flex;
+}
+
+button{
+    background-color:gold;
+}
+textarea{
+    background-color: #f4e590;
+}
