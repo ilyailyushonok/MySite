@@ -17,4 +17,6 @@ padding: 10px;
 .message{
     color: white;
 }
-
+.newMessage{
+    display: flex;
+}
