@@ -9,6 +9,9 @@
 button{
     background-color:gold;
 }
+button:active{
+    background-color: lightgray;
+}
 textarea{
     background-color: #f4e590;
 }

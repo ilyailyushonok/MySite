@@ -11,6 +11,9 @@ import Settings from "./components/settings/Settings";
 import Profile from "./components/profile/Profile";
 
 
+// import {updateNewPostText} from "./redux/State";
+
+
 const App=(props)=>{
 
   return (
@@ -21,8 +24,13 @@ const App=(props)=>{
 
           <div className='app-wrapper-content'>
             <Routes>
-              <Route path="/profile/*" element={<Profile addPost={props.addPost} profilePage={props.state.profilePage}/>}/>
-              <Route path="/dialogs/*" element={<Dialogs messagesData={props.state.messagesPage.messagesData} dialogsData={props.state.messagesPage.dialogsData}/>}/>
+              <Route path="/profile/*" element={<Profile dispatch={props.dispatch}
+                                                         profilePage={props.state.profilePage}
+                                                         addPostActionCreator={props.addPostActionCreator}
+                                                         updateNewPostTextActionCreator={props.updateNewPostTextActionCreator}/>}/>
+              <Route path="/dialogs/*" element={<Dialogs dispatch={props.dispatch}
+                                                         messagesData={props.state.messagesPage.messagesData}
+                                                         dialogsData={props.state.messagesPage.dialogsData}/>}/>
               <Route path="/news" element={<News/>}/>
               <Route path="/music" element={<Music/>}/>
               <Route path="/settings" element={<Settings/>}/>
