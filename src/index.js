@@ -4,7 +4,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App.js';
  // import reportWebVitals from './reportWebVitals';
-import store, {addPostActionCreator, updateNewPostTextActionCreator} from "./redux/State";
+import store from "./redux/Store";
+import {addPostActionCreator, updateNewPostTextActionCreator} from './redux/profile-reducer';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
