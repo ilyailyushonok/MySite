@@ -9,9 +9,10 @@ import News from "./components/news/News";
 import Music from "./components/music/Music";
 import Settings from "./components/settings/Settings";
 import Profile from "./components/profile/Profile";
+import DialogsContainer from "./components/dialogs/DialogsContainer";
 
 
-// import {updateNewPostText} from "./redux/State";
+
 
 
 const App=(props)=>{
@@ -24,13 +25,8 @@ const App=(props)=>{
 
           <div className='app-wrapper-content'>
             <Routes>
-              <Route path="/profile/*" element={<Profile dispatch={props.dispatch}
-                                                         profilePage={props.state.profilePage}
-                                                         addPostActionCreator={props.addPostActionCreator}
-                                                         updateNewPostTextActionCreator={props.updateNewPostTextActionCreator}/>}/>
-              <Route path="/dialogs/*" element={<Dialogs dispatch={props.dispatch}
-                                                         messagesData={props.state.messagesPage.messagesData}
-                                                         dialogsData={props.state.messagesPage.dialogsData}/>}/>
+              <Route path="/profile/*" element={<Profile store={props.store}/>}/>
+              <Route path="/dialogs/*" element={<DialogsContainer store={props.store} state={props.state}/>}/>
               <Route path="/news" element={<News/>}/>
               <Route path="/music" element={<Music/>}/>
               <Route path="/settings" element={<Settings/>}/>
