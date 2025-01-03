@@ -6,10 +6,10 @@ import MessageItem from "./message/messagesItem";
 
 
 const Dialogs = (props) => {
-    let dialogsElements=props.dialogsData
+    let dialogsElements=props.messagesPage.dialogsData
         .map(dialog=><DialogItem id={dialog.id} name={dialog.name}/>)
 
-    let messagesElements= props.messagesData
+    let messagesElements= props.messagesPage.messagesData
             .map(m=> <MessageItem message={m.message} />)
 
     let onSendMessageClick=()=>{
@@ -31,7 +31,7 @@ const Dialogs = (props) => {
                 <div> {messagesElements}</div>
             </div>
             <div className={s.newMessage}>
-                <textarea value={props.newMessageBody}
+                <textarea value={props.messagesPage.newMessageBody}
                     onChange={onNewMessageChange}
                           placeholder={'New Message'}></textarea>
                 <button onClick={onSendMessageClick}>Send</button>
