@@ -10,7 +10,7 @@ import Music from "./components/music/Music";
 import Settings from "./components/settings/Settings";
 import Profile from "./components/profile/Profile";
 import DialogsContainer from "./components/dialogs/DialogsContainer";
-
+import UsersContainer from "./components/Users/UsersContainer";
 
 
 
@@ -30,6 +30,7 @@ const App=()=>{
               <Route path="/news" element={<News/>}/>
               <Route path="/music" element={<Music/>}/>
               <Route path="/settings" element={<Settings/>}/>
+              <Route path="/users" element={<UsersContainer/>}/>
             </Routes>
 
           </div>
