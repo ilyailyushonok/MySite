@@ -17,8 +17,8 @@ const ProfileInfo = (props) => {
                     <img src={props.profile.photos.large} alt="ava"/>
                     <h3>{props.profile.aboutMe}</h3>
                     <h3>{props.profile.lookingForAJob?"в поиске работы":"не ищу работу"}</h3>
-                    <p>Мои контакты:
                     <ul>
+                        <li>Мои контакты:</li>
                         <li>Фейсбук: {props.profile.contacts.facebook?props.profile.contacts.facebook:"пока нету:("}</li>
                         <li>Сайт: {props.profile.contacts.website?props.profile.contacts.website:"пока нету:("}</li>
                         <li>ВК: {props.profile.contacts.vk?props.profile.contacts.vk:"пока нету:("}</li>
@@ -26,7 +26,7 @@ const ProfileInfo = (props) => {
                         <li>Инстаграмм: {props.profile.contacts.instagram?props.profile.contacts.instagram:"пока нету:("}</li>
                         <li>ГитХаб: {props.profile.contacts.github?props.profile.contacts.github:"пока нету:("}</li>
                     </ul>
-                    </p>
+
                 </div>
             </div>
         </div>

@@ -21,7 +21,7 @@ if(response.data.resultCode===0) {
 
     render() {
         return (
-            <Header/>
+            <Header {...this.props}/>
         );
     }
 }
