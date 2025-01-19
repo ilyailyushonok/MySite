@@ -12,6 +12,7 @@ import Settings from "./components/settings/Settings";
 import DialogsContainer from "./components/dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/profile/ProfileContainer";
+import HeaderContainer from "./components/header/HeaderContainer";
 
 
 
@@ -21,12 +22,12 @@ const App=()=>{
   return (
       <BrowserRouter>
         <div className='app-wrapper'>
-          <Header/>
+          <HeaderContainer/>
           <NavBar/>
 
           <div className='app-wrapper-content'>
             <Routes>
-              <Route path="/profile/*" element={<ProfileContainer/>}/>
+              <Route path="/profile/:userId?" element={<ProfileContainer/>}/>
               <Route path="/dialogs/*" element={<DialogsContainer />}/>
               <Route path="/news" element={<News/>}/>
               <Route path="/music" element={<Music/>}/>

@@ -1,29 +1,60 @@
-import React from 'react';
+// import React from 'react';
+// import Profile from "./Profile";
+// import axios from "axios";
+// import {setUserProfile} from "../../redux/profile-reducer";
+// import {connect} from "react-redux";
+//
+//
+//
+// class ProfileContainer extends React.Component {
+//     componentDidMount(){
+//         axios.get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
+//             .then((response) => {
+//                 this.props.setUserProfile(response.data);
+//             })
+//     }
+//     render(){
+//         return(
+//             <Profile{...this.props} profile={this.props.profile}/>
+//
+//         )
+//     }
+//
+// }
+//
+// let mapStateToProps = (state) => ({
+//     profile: state.profilePage.profile
+// });
+//
+// withRouter(ProfileContainer)
+//
+// export default connect(mapStateToProps,{setUserProfile}) (ProfileContainer);
+
+import React, { useEffect } from 'react';
 import Profile from "./Profile";
 import axios from "axios";
-import {setUserProfile} from "../../redux/profile-reducer";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
+import { useParams } from "react-router-dom";
+import { setUserProfile } from "../../redux/profile-reducer";
 
+const ProfileContainer = (props) => {
+    let { userId } = useParams()
 
+    useEffect(() => {
 
-class ProfileContainer extends React.Component {
-    componentDidMount(){
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
+        let id = userId || 2;
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${id}`)
             .then((response) => {
-                this.props.setUserProfile(response.data);
-            })
-    }
-    render(){
-        return(
-            <Profile{...this.props} profile={this.props.profile}/>
+                props.setUserProfile(response.data);
+            });
+    }, [userId]); // Перезапуск, если userId изменится
 
-        )
-    }
+    return <Profile {...props} profile={props.profile} />;
+};
 
-}
+const mapStateToProps = (state) => ({
+    profile: state.profilePage.profile,
+});
 
-let mapDispatchToProps = (state) => ({
-    profile: state.profilePage.profile
-})
-
-export default connect(mapDispatchToProps,{setUserProfile}) (ProfileContainer);
+// Экспортируем компонент, подключая Redux
+export default connect(mapStateToProps, { setUserProfile })(ProfileContainer);
