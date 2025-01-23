@@ -2,8 +2,7 @@ import React  from "react";
 import s from "./Users.module.css";
 import usersImgBasic from "../../assets/images/usersImgBasic.jpeg";
 import {NavLink} from "react-router-dom";
-import {usersAPI} from "../../api/api";
-import {toggleFollowingProgress} from "../../redux/users-reduser";
+
 
 
 let Users = (props) => {
@@ -13,9 +12,7 @@ let Users = (props) => {
     for(let i=1;i<=pagesCount;i++){
         pages.push(i)
     }
-
     return (
-
         <div>
             <div className={s.currentPage}>
                 {pages.map((p) => {

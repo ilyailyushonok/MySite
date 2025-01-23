@@ -8,6 +8,7 @@ import {
 import React from "react";
 import Users from "./Users";
 import Preloader from "../common/Preloader";
+import {withAuthRedirect} from "../../HOC/withAuthRedirect";
 
 
 
@@ -50,11 +51,11 @@ const mapStateToProps = (state) => {
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
         isFetching: state.usersPage.isFetching,
-        followingInProgress: state.usersPage.followingInProgress
+        followingInProgress: state.usersPage.followingInProgress,
     };
 
 }
-
+let AuthRedirectComponent=withAuthRedirect(UsersContainer)
 
 export default connect(mapStateToProps,
     {
@@ -62,4 +63,4 @@ export default connect(mapStateToProps,
         setCurrentPage,
         getUsers
     }
-)(UsersContainer)
+)(AuthRedirectComponent)
