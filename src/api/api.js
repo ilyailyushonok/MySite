@@ -19,9 +19,20 @@ export const usersAPI={
     postUser(id=1) {
         return instance.post(`/follow/${id}`)
             .then(res => res.data)
-    } ,//follow user
+    } //follow user
+}
+
+export const profileAPI={
+
     getProfile(id) {
-    return  instance.get(`profile/${id}`)}
+            return  instance.get(`profile/${id}`)
+},
+    getStatus(id) {
+        return instance.get(`profile/status/${id}`)
+    },
+    updateStatus(status) {
+        return instance.put(`profile/status`,{status:status})
+    }
 }
 
 export const authAPI={

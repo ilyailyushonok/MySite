@@ -1,8 +1,9 @@
-import {usersAPI} from "../api/api";
+import {profileAPI} from "../api/api";
 
 const ADD_POST = 'ADD-POST'
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 const SET_USER_PROFILE = 'SET_USER_PROFILE'
+const SET_STATUS = 'SET_STATUS'
 
 
 let initialState = {
@@ -12,7 +13,8 @@ let initialState = {
         {id: 3, post: 'Kamsutra like', likes: 123345456}
     ],
     newPostText: 'Hello!',
-    profile: null
+    profile: null,
+    status:'status:---'
 }
 
  const profileReducer = (state=initialState , action) => {
@@ -41,6 +43,12 @@ SET_USER_PROFILE: {
          ...state,
         profile : action.profile};
      }
+case
+SET_STATUS: {
+    return {
+         ...state,
+        status : action.status};
+     }
 default:
     return state;
  }
@@ -53,11 +61,27 @@ default:
      newText:text
  })
 export const setUserProfile=(profile)=>({type:SET_USER_PROFILE,profile})
+export const setStatus=(status)=>({type:SET_STATUS,status})
 //Thunk creator
 export const getUserProfile=(userId)=>(dispatch)=>{
-    usersAPI.getProfile(userId)
+    profileAPI.getProfile(userId)
         .then((response) => {
             dispatch(setUserProfile(response.data))
+        });
+
+}
+export const getStatus=(userId)=>(dispatch)=>{
+    profileAPI.getStatus(userId)
+        .then((response) => {
+            dispatch(setStatus(response.data))
+        });
+
+}
+export const updateStatus=(status)=>(dispatch)=>{
+    profileAPI.updateStatus(status)
+        .then((response) => {
+            if(response.data.resultCode === 0) {
+            dispatch(setStatus(response.data.messages))}
         });
 
 }
