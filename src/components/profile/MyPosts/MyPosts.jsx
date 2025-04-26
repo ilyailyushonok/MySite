@@ -3,12 +3,10 @@ import s from './MyPosts.module.css'
 import Post from './Post/Post';
 
 
-
 const MyPosts = (props) => {
     let postsElements =
-        props.profilePage.postsData.map((p, index) => <Post  key={index} post={p.post} likes={p.likes}/>)
-
-
+        props.profilePage.postsData.map((p, index) => <Post  key={index} post={p.post} likes={p.likes}/>
+        )
 
     let newPostElement = React.createRef()
     let onAddPost = () => {
@@ -20,7 +18,6 @@ const MyPosts = (props) => {
         const text = newPostElement.current.value
         props.updateNewPostText(text);
     }
-
     return (
         <div className={s.posts}>
             <h3>My posts:</h3>
@@ -34,4 +31,4 @@ const MyPosts = (props) => {
     )
 };
 
-            export default MyPosts;
+export default MyPosts;

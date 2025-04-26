@@ -5,6 +5,7 @@ import sidebarReducer from "./sidebar-reducer";
 import usersReducer from "./users-reduser";
 import authReducer from "./auth-reduser";
 import {thunk} from "redux-thunk";
+import { reducer as formReducer } from 'redux-form'
 
 
 let reducers=combineReducers({
@@ -12,7 +13,8 @@ let reducers=combineReducers({
     messagesPage:messagesReducer,
     sidebar:sidebarReducer,
     usersPage:usersReducer,
-    auth:authReducer
+    auth:authReducer,
+    form:formReducer
 })
 
 
